@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item" onclick="_copy()">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div class="item">
+            
+        </div>
+        <div class="item">
+
+        </div>
+    </div>
+    <script>
+      let listLi = document.querySelectorAll("li");
+      let listItem = document.querySelectorAll("div.item");
+      console.log(listItem);    
+      const lengthLi = listLi.length;
+      const lengthItem = listItem.length;
+      const _copy=()=>{
+        for (i = 0; i < lengthLi; i++) {
+          const node = document.createElement("li");
+          const textnode = document.createTextNode(i + 1);
+          node.appendChild(textnode);
+          listItem[lengthItem-1].appendChild(node);
+        }
+      }
+    </script>
+</body>
+</html>

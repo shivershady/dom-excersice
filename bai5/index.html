@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="item-box">
+        <button onclick="content()" >
+            <i id="content-i1" class="bi bi-caret-up-fill"></i>
+            <span>Nội dung 1</span>
+        </button>
+        <div class="text" id="lorem-1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In commodi deserunt expedita. Ratione ducimus provident reiciendis magnam nesciunt dolorem suscipit placeat, earum tenetur quos eaque aliquam, omnis eum cum harum?
+        </div>
+    </div>
+    <div class="item-box" >
+        <button onclick="content()">
+            <i id="content-i2" class="bi bi-caret-up-fill"></i>
+            <span>Nội dung 2</span>
+        </button>
+        <div class="text" id="lorem-2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In commodi deserunt expedita. Ratione ducimus provident reiciendis magnam nesciunt dolorem suscipit placeat, earum tenetur quos eaque aliquam, omnis eum cum harum?
+        </div>
+    </div>
+    <div class="item-box" >
+        <button onclick="content()">
+            <i id="content-i3" class="bi bi-caret-up-fill"></i>
+            <span>Nội dung 3</span>
+        </button>
+        <div class="text" id="lorem-3">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In commodi deserunt expedita. Ratione ducimus provident reiciendis magnam nesciunt dolorem suscipit placeat, earum tenetur quos eaque aliquam, omnis eum cum harum?
+        </div>
+    </div>
+    <style>
+        .item-box button{
+            width: 40vw;
+            height: 5vh;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .item-box .text{
+            width: 40vw;
+            display: none;
+        }
+    </style>
+    <script>
+        const content=()=>{
+            document.querySelector("#content-i1").style.transform = "rotate(180deg)";
+        }
+    </script>
+</body>
+</html>

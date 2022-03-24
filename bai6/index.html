@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown
+      <span data-tooltip="this is tooltip 1">printer</span>
+      took a galley of type and scrambled it to make a type specimen book. It
+      has survived
+      <span data-tooltip="this is tooltip 2">not only five</span> centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged.
+      <span data-tooltip="this is tooltip 3">It was popularised</span> in the
+      1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      and more recently with desktop publishing software like Aldus PageMaker
+      including versions of Lorem Ipsum.
+    </p>
+    <style>
+      p {
+        margin-top: 50px;
+      }
+      span {
+        position: relative;
+      }
+      .span-item {
+        font-weight: 900;
+      }
+      .child-span {
+        display: none;
+        color: white;
+        width: 150px;
+        height: 25px;
+        background: black;
+        text-align: center;
+        position: absolute;
+        top: -30px;
+        left: -50px;
+      }
+      .span-item:hover > .child-span {
+        display: block;
+      }
+      .child-span::before {
+        content: "\25bc";
+        position: absolute;
+        bottom:-14px;
+        left: 70px;
+        color:black;
+      }
+    </style>
+    <script>
+      const listSpan = document.querySelectorAll("span");
+      const lengthSpan = listSpan.length;
+      for (i = 0; i < lengthSpan; i++) {
+        listSpan[i].classList.add("span-item");
+        const node = document.createElement("b");
+        node.classList.add("child-span");
+        const textNode = document.createTextNode(
+          listSpan[i].getAttribute("data-tooltip")
+        );
+        node.appendChild(textNode);
+        listSpan[i].appendChild(node);
+      }
+    </script>
+  </body>
+</html>
