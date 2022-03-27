@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <div class="second-bar">
+          <div class="second-bar-item"></div>
+        </div>
+        <div class="second-number"></div>
+      </div>
+      <div class="content">
+        <div class="question"></div>
+        <div class="answer">
+          <div class="answer-item">Hypertex Preprocessor</div>
+          <div class="answer-item">Hypertex Preprocessor</div>
+          <div class="answer-item">Hypertex Preprocessor</div>
+          <div class="answer-item">Hypertex Preprocessor</div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .wrapper {
+        margin: 0;
+        padding: 40px;
+      }
+      .header {
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .second-bar {
+        width: 300px;
+        height: 20px;
+        background: grey;
+        border-radius: 50px;
+        position: relative;
+        z-index: 10;
+      }
+      .second-bar-item {
+        width: 0%;
+        height: 100%;
+        background: coral;
+        border-radius: 50px;
+        position: relative;
+        z-index: 100;
+      }
+      .second-number {
+        width: 100px;
+        height: 100px;
+        background: coral;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .content .question {
+        font-size: 50px;
+        font-weight: bold;
+      }
+      .content .answer {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: auto auto;
+        gap: 3rem;
+      }
+      .content .answer .answer-item {
+        font-size: 30px;
+        background: coral;
+        padding: 10px;
+        border-radius: 2rem;
+        text-align: center;
+      }
+    </style>
+    <script>
+      const questions = [
+        {
+          question: "PHP stand for 1?",
+          answer: [
+            {
+              text: "Hypertex Preprocessor",
+              correct: "true",
+            },
+            {
+              text: "Hypertex Home Page",
+              correct: "false",
+            },
+            {
+              text: "Perl Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Professional Home Page",
+              correct: "false",
+            },
+          ],
+        },
+        {
+          question: "PHP stand for 2?",
+          answer: [
+            {
+              text: "Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Hypertex Home Page",
+              correct: "true",
+            },
+            {
+              text: "Perl Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Professional Home Page",
+              correct: "false",
+            },
+          ],
+        },
+        {
+          question: "PHP stand for 3?",
+          answer: [
+            {
+              text: "Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Hypertex Home Page",
+              correct: "false",
+            },
+            {
+              text: "Perl Hypertex Preprocessor",
+              correct: "true",
+            },
+            {
+              text: "Professional Home Page",
+              correct: "false",
+            },
+          ],
+        },
+        {
+          question: "PHP stand for 4?",
+          answer: [
+            {
+              text: "Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Hypertex Home Page",
+              correct: "false",
+            },
+            {
+              text: "Perl Hypertex Preprocessor",
+              correct: "false",
+            },
+            {
+              text: "Professional Home Page",
+              correct: "true",
+            },
+          ],
+        },
+      ];
+      let number = 10;
+      let numberBar = 0;
+      const lengthQuestions = questions.length;
+      let indexQuestionNow = 0;
+      const nextQuestion = () => {
+        number = 10;
+        numberBar = 0;
+        indexQuestionNow += 1;
+      };
+
+      const handleAnswerClick = (correct) => {
+        // if(correct=="true"){
+        //     alert("Trả lời đúng");
+        //     nextQuestion();
+        // }else{
+        //     alert("Trả lời sai");
+        //   }
+      };
+
+      document.querySelector(".second-number").innerHTML = number;
+      let secondInterval = setInterval(() => {
+        number -= 1;
+        document.querySelector(".second-number").innerText = number;
+        numberBar += 10;
+        document.querySelector(".second-bar-item").style.width =
+          numberBar + "%";
+        document.querySelector(".question").innerHTML =
+          questions[indexQuestionNow].question;
+
+        for (let i = 0; i < lengthQuestions; i++) {
+          const questionNow = document.querySelector(
+            ".answer-item:nth-child" + "(" + (i + 1) + ")"
+          );
+          questionNow.innerHTML = questions[indexQuestionNow].answer[i].text;
+          questionNow.addEventListener("click", handleAnswerClick);
+        }
+        if (number <= 0) {
+          nextQuestion();
+        }
+        if (indexQuestionNow == lengthQuestions) {
+          clearInterval(secondInterval);
+        }
+      }, 1000);
+      // secondInterval();
+    </script>
+  </body>
+</html>
