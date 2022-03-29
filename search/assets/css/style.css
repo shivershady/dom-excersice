@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  padding: 3rem;
+}
+
+.wrapper form input {
+  border: 1px solid #ccc;
+  width: 20rem;
+  text-align: center;
+}
+
+.wrapper .content .item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  height: 20rem;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.wrapper .content .item .img {
+  height: 20rem;
+}
+
+.wrapper .content .item .img img {
+  height: 100%;
+  width: 20rem;
+}
+
+.wrapper .content .item .text-content .author {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.wrapper .content .item .text-content .author span {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.wrapper .content .item .text-content .title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.wrapper .content .item .text-content .title a {
+  color: lightblue;
+}
+
+.wrapper .content .item .text-content .description {
+  color: coral;
+}
+/*# sourceMappingURL=style.css.map */
